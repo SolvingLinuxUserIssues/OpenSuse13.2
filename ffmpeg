@@ -1,5 +1,7 @@
-I tried to install ffmpeg , I could not find it in the repositories for opensuse13.2 ,so I went to the project page
-https://ffmpeg.org/download.html
+I tried to install ffmpeg , I could not find it in the repositories for opensuse13.2 ,
+(only now that I write this, I disovered the following catalog 
+http://packman.links2linux.org/package/ffmpeg/686533 )
+so I went to the project page    https://ffmpeg.org/download.html
 and downloaded the ffmpeg-2.8.6.tar.bz2 file , putting it into my Downloads folder.
 I then uncompressed it , and cd into the new directory ffmpeg-2.8.6
 The basic instructions are in the file INSTALL.md and what it says there is basically to do :
