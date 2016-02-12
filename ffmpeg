@@ -39,4 +39,4 @@ and this ${cross_prefix} appears in so many places in the configure script , tha
 destroy all other variables ,like ar_default , cc_default , pkg_config_default etc (that did not complain anyway).
 So I do not know exactly why the configure script could not prepend the /usr/bin for the sdl-config , while 
 it was successfull for ar_default , cc_default , pkg_config_default etc , but I do not want to spend more 
-time in this now! 
+time in this now! I finally have ffplay , and now must learn how to use it.
