@@ -1,4 +1,4 @@
-I tried to install ffmpeg , I could not find it in the repositories for opensuse13.2 ,
+Today (12 Feb 2016) I tried to install ffmpeg ,and I could not find it in the repositories for opensuse13.2
 (only now that I write this, I disovered the following catalog 
 http://packman.links2linux.org/package/ffmpeg/686533 )
 so I went to the project page    https://ffmpeg.org/download.html
@@ -22,21 +22,22 @@ and again lots of output , and nothing to prepare me for any problems.
 So when it finished , I searched with 
   ls -ls /usr/local/bin/ff*
 but I only had ffmpeg , ffprobe and ffserver ! Where was ffplay? 
-I started googling , found some artivces mentining something about sdl libraries , but nothing for opensuse.
+I started googling , found some articles mentoining something about sdl libraries , but all was
+for other systems and nothing for opensuse.
 Using zypper again I did 
   sudo zypper install libsdl-devel
 just in case this was needed , and tried again the 3 steps (configure , make , sudo make install)
 but still no ffplay! 
-I could see in the results of the articles that they were about ubuntu or macOSX etc , so I did not bother 
+I could see in the google-results of the articles that they were about ubuntu or macOSX etc ,and I did not bother 
 to read all these stuff. So I opened shell script file configure , to see its contents.
 After spending some time getting familiar with some variables related to ffplay , I changed the line
   SDL_CONFIG="${cross_prefix}sdl-config"
 with 
   SDL_CONFIG="/usr/bin/sdl-config"
 and it solved my problems. 
-I did not want to do 
+I did not want to pass parameters in the configure :  
   ./configure --cross-prefix=/usr/bin
-because then the variable ${cross_prefix} would be "/usr/lib" in all places it appears ,
+because then the variable ${cross_prefix} would be "/usr/lib" in all other places it appears ,
 and this ${cross_prefix} appears in so many places in the configure script , that I was afraid it will 
 destroy all other variables ,like ar_default , cc_default , pkg_config_default etc (that did not complain anyway).
 So I do not know exactly why the configure script could not prepend the /usr/bin for the sdl-config , while 
